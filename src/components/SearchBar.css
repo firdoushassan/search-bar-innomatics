@@ -1,0 +1,136 @@
+/* Container for the search bar and details */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Container for the search input and icon */
+.search-bar-container {
+    display: flex;
+    flex-direction: column; /* Ensure the suggestions list appears below the search input */
+    align-items: center;
+    position: relative;
+    max-width: 500px; /* Adjust as needed */
+    width: 100%;
+}
+
+/* Styling for the input field */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; /* Space for the icon */
+    font-size: 1.2rem;
+    border: 1px solid #333;
+    background: linear-gradient(135deg, #333, #444);
+    color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for positioning the icon */
+}
+
+/* Styling for the search button */
+.search-button {
+    position: absolute;
+    right: 12px; /* Align button inside the input field */
+    top: 50%; /* Center button vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+/* Position the search icon inside the button */
+.search-icon {
+    pointer-events: none; /* Prevent clicks on the icon */
+}
+
+/* Styling for the suggestions list */
+.suggestions-list {
+    margin-top: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #000;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    width: 100%; /* Match the width of the input */
+    position: absolute; /* Ensure the list appears below the input */
+    top: 100%; /* Position directly below the input */
+    left: 0; /* Align to the left edge */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideDown 0.3s forwards ease-in-out;
+}
+
+.suggestion-item {
+    padding: 12px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #333;
+    color: #6dd5ed;
+}
+.suggestion-item.focused {
+    background: #555;
+}
+
+/* Custom scrollbar */
+.suggestions-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+    background-color: #000;
+    border-radius: 10px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+}
+
+/* Highlight style for matched text */
+.highlight {
+    background-color: #6dd5ed;
+    font-weight: bold;
+    color: #000;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+/* Animation for the suggestion list */
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for country details */
+.country-details {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #222;
+    color: #f5f5f5;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+}
